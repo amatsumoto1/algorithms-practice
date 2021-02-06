@@ -6,8 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 add_subdirectory(vendor)
 
 add_executable(
-    tests,
+    tests
     tests.cpp
+    data_structures/LinkedListTest.cpp
 )
 
 target_include_directories(
