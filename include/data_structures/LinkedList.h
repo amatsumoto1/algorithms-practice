@@ -1,24 +1,24 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-
 namespace DataStructures {
-
 template<typename T>
 class LinkedList {
 public:
     LinkedList();
     ~LinkedList();
 
-    operator std::string() const;
+    T& operator[](int index);
+
 
     int GetSize() const;
-    void Add(T value);
-    bool Add(T value, int location);
+    void AddFront(T value);
+    void Append(T value);
+    bool Insert(T value, int location);
     bool Contains(T value) const;
-    bool RemoveAt(int index);
+    T PopFront();
     bool Remove(T value);
-    void Set(int index, T value);
+    bool RemoveAt(int index);
 private:
     struct Node {
         public:
@@ -29,32 +29,12 @@ private:
             Node* next_;
     };
 
-    Node* getNodeAt(int index);
-
     Node* head_;
     int size_;
 };
 
-template<typename T>
-inline
-void Add(T value, int location) {
-    Node* addedNode = nullptr;
-    if (location == 0) {
-        addedNode = new Node(value, head_);
-        head_ = addedNode;
-    }
-    else {
-        Node* n = head_;
-        for (int i = 1; i < location; i++) {
-            if (n != nullptr) {
-                n = n->next;
-            }
-        }
-    }
 }
 
-}
-
-#include "inl/LinkedList.inl";
+#include "inl/LinkedList.inl"
 
 #endif
