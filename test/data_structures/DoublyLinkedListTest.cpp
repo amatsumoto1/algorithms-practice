@@ -1,16 +1,16 @@
 #include "gtest/gtest.h"
 
-#include "LinkedList.h"
+#include "DoublyLinkedList.h"
 
 namespace DataStructures {
 
-TEST(LinkedListTests, Constructor) {
-	LinkedList<int> list;
+TEST(DoublyLinkedListTests, Constructor) {
+	DoublyLinkedList<int> list;
 	ASSERT_EQ(list.GetSize(), 0);
 }
 
-TEST(LinkedListTests, AddFront) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, AddFront) {
+    DoublyLinkedList<int> list;
     list.AddFront(1);
     list.AddFront(2);
     list.AddFront(3);
@@ -20,8 +20,8 @@ TEST(LinkedListTests, AddFront) {
     EXPECT_EQ(list[2], 1);
 }
 
-TEST(LinkedListTests, Append) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, Append) {
+    DoublyLinkedList<int> list;
     list.Append(1);
     list.Append(2);
     list.Append(3);
@@ -31,8 +31,8 @@ TEST(LinkedListTests, Append) {
     EXPECT_EQ(list[2], 3);
 }
 
-TEST(LinkedListTests, Set) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, Set) {
+    DoublyLinkedList<int> list;
     list.AddFront(0);
     list.AddFront(0);
     list.AddFront(0);
@@ -43,8 +43,8 @@ TEST(LinkedListTests, Set) {
     EXPECT_EQ(list[2], 3);
 }
 
-TEST(LinkedListTests, Insert) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, Insert) {
+    DoublyLinkedList<int> list;
     EXPECT_FALSE(list.Insert(4, 2));
     EXPECT_TRUE(list.Insert(2, 0));
     EXPECT_TRUE(list.Insert(3, 0));
@@ -58,8 +58,8 @@ TEST(LinkedListTests, Insert) {
     EXPECT_EQ(list[3], 5);
 }
 
-TEST(LinkedListTests, Contains) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, Contains) {
+    DoublyLinkedList<int> list;
     EXPECT_FALSE(list.Contains(4));
     list.AddFront(0);
     list.AddFront(1);
@@ -68,8 +68,8 @@ TEST(LinkedListTests, Contains) {
     EXPECT_FALSE(list.Contains(2));
 }
 
-TEST(LinkedListTests, PopFront) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, PopFront) {
+    DoublyLinkedList<int> list;
     list.AddFront(2);
     list.AddFront(1);
     EXPECT_EQ(list.PopFront(), 1);
@@ -79,8 +79,19 @@ TEST(LinkedListTests, PopFront) {
     EXPECT_EQ(list.GetSize(), 0);
 }
 
-TEST(LinkedListTests, Remove) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, PopBack) {
+    DoublyLinkedList<int> list;
+    list.Append(2);
+    list.Append(1);
+    EXPECT_EQ(list.PopBack(), 1);
+    EXPECT_EQ(list.GetSize(), 1);
+    EXPECT_EQ(list[0], 2);
+    EXPECT_EQ(list.PopBack(), 2);
+    EXPECT_EQ(list.GetSize(), 0);
+}
+
+TEST(DoublyLinkedListTests, Remove) {
+    DoublyLinkedList<int> list;
     EXPECT_FALSE(list.Remove(0));
     list.AddFront(0);
     list.AddFront(1);
@@ -95,8 +106,8 @@ TEST(LinkedListTests, Remove) {
     EXPECT_EQ(list[0], 0);
 }
 
-TEST(LinkedListTests, RemoveAt) {
-    LinkedList<int> list;
+TEST(DoublyLinkedListTests, RemoveAt) {
+    DoublyLinkedList<int> list;
     EXPECT_FALSE(list.RemoveAt(0));
     list.AddFront(2);
     list.AddFront(3);

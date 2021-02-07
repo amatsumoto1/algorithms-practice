@@ -11,7 +11,7 @@ LinkedList<T>::LinkedList()
 template<typename T>
 LinkedList<T>::~LinkedList() {
     while (head_ != nullptr) {
-        Node* current = head_->next_;
+        Node* current = head_->next;
         delete head_;
         head_ = current;
     }
@@ -23,17 +23,17 @@ int LinkedList<T>::GetSize() const {
 }
 
 template<typename T>
-T& LinkedList<T>::operator[] (int index) {
+T& LinkedList<T>::operator[](int index) {
     if (index >= size_ || index < 0) {
         throw std::out_of_range("Index out of range");
     }
 
     Node* current = head_;
     for (int i = 0; i < index; i++) {
-        current = current->next_;
+        current = current->next;
     }
 
-    return current->value_;
+    return current->value;
 }
 
 template<typename T>
@@ -49,10 +49,10 @@ void LinkedList<T>::Append(T value) {
     }
     else {
         Node* current = head_;
-        while (current->next_ != nullptr) {
-            current = current->next_;
+        while (current->next != nullptr) {
+            current = current->next;
         }
-        current->next_ = new Node(value);
+        current->next = new Node(value);
     }
     size_++;
 }
@@ -70,9 +70,9 @@ bool LinkedList<T>::Insert(T value, int index) {
 
     Node* current = head_;
     for (int i = 0; i < index -1; i++) {
-        current = current->next_;
+        current = current->next;
     }
-    current->next_ = new Node(value, current->next_);
+    current->next = new Node(value, current->next);
     size_++;
     return true;
 }
@@ -81,10 +81,10 @@ template<typename T>
 bool LinkedList<T>::Contains(T value) const {
     Node* current = head_;
     while (current != nullptr) {
-        if (current->value_ == value) {
+        if (current->value == value) {
             return true;
         }
-        current = current->next_;
+        current = current->next;
     }
 
     return false;
@@ -97,8 +97,8 @@ T LinkedList<T>::PopFront() {
     }
 
     Node* temp = head_;
-    T retVal = head_->value_;
-    head_ = head_->next_;
+    T retVal = head_->value;
+    head_ = head_->next;
     size_--;
     delete temp;
     return retVal;
@@ -106,24 +106,24 @@ T LinkedList<T>::PopFront() {
 
 template<typename T>
 bool LinkedList<T>::Remove(T value) {
-    if (head_ != nullptr && head_->value_ == value) {
+    if (head_ != nullptr && head_->value == value) {
         Node* temp = head_;
-        head_ = temp->next_;
+        head_ = temp->next;
         delete temp;
         size_--;
         return true;
     }
 
     Node* current = head_;
-    while (current != nullptr && current->next_ != nullptr) {
-        if (current->next_->value_ == value) {
-            Node* temp = current->next_;
-            current->next_ = temp->next_;
+    while (current != nullptr && current->next != nullptr) {
+        if (current->next->value == value) {
+            Node* temp = current->next;
+            current->next = temp->next;
             delete temp;
             size_--;
             return true;
         }
-        current = current->next_;
+        current = current->next;
     }
     return false;
 }
@@ -136,16 +136,16 @@ bool LinkedList<T>::RemoveAt(int index) {
 
     if (index == 0) {
         Node* temp = head_;
-        head_ = head_->next_;
+        head_ = head_->next;
         delete temp;
     }
     else {
         Node* current = head_;
         for (int i = 0; i < index-1; i++) {
-            current = current->next_;
+            current = current->next;
         }
-        Node* temp = current->next_;
-        current->next_ = temp->next_;
+        Node* temp = current->next;
+        current->next = temp->next;
         delete temp;
     }
 

@@ -3,19 +3,18 @@
 
 namespace DataStructures {
 
-// Singly linked list.
+// A doubly linked list.
 template<typename T>
-class LinkedList {
+class DoublyLinkedList {
 public:
-    LinkedList();
-    ~LinkedList();
+    DoublyLinkedList();
+    ~DoublyLinkedList();
 
     // Accesses the element at the given index. If the index is invalid, throws
     // an out_of_bounds exception.
     T& operator[](int index);
-
+    
     int GetSize() const;
-
     // Adds value to the front of the list.
     void AddFront(T value);
     // Adds value to the end of the list.
@@ -27,6 +26,9 @@ public:
     // Removes the first element from the list and returns it. If there is no
     // element to return, throws an out_of_bounds exception.
     T PopFront();
+    // Removes the last element from the list and returns it. If there is no
+    // element to return, throws an out_of_bounds exception.
+    T PopBack();
     // Removes the first element from the list with the given value. Returns
     // whether there was an element removed.
     bool Remove(T value);
@@ -36,17 +38,39 @@ public:
 private:
     struct Node {
         T value;
+        Node* prev;
         Node* next;
+        
+        Node(T value) : value(value), prev(nullptr), next(nullptr) {}
 
-        Node(T value, Node* next = nullptr) : value(value), next(next) {}
+
     };
 
+    Node* GetNodeAt(int index) {
+        Node* current;
+        if (index > size_ / 2) {
+            current = head_;
+            for (int i = 0; i < index; i++) {
+                current = current->next;
+            }
+        }
+        else {
+            current = tail_;
+            for (int i = size_ - 1; i > index; i--) {
+                current = current->prev;
+            }
+        }
+
+        return current;
+    }
+
     Node* head_;
+    Node* tail_;
     int size_;
 };
 
 }
 
-#include "inl/LinkedList.inl"
+#include "inl/DoublyLinkedList.inl"
 
 #endif
