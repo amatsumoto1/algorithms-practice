@@ -4,9 +4,9 @@
 
 namespace DataStructures {
 
-TEST(LinkedListTests, constructor) 
-    LinkedList<int> list;
+TEST(LinkedListTests, Constructor) {
+	LinkedList<int> list;
+	ASSERT_EQ(list.GetSize(), 0);
+}
 
-    EXPECT_EQ(list.GetSize(), 0);
-)
 }
