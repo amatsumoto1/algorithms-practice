@@ -15,7 +15,7 @@ add_executable(
 target_include_directories(
     tests
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/../include/data_structures
+    ${PROJECT_SOURCE_DIR}/include/data_structures
     ${gtest_SOURCE_DIR}/include
 )
 
