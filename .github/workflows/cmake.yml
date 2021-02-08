@@ -1,8 +1,12 @@
 name: CMake
 
-on: [push, pull_request]
-  
-
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths-ignore:
+      - "*.md"
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
@@ -10,10 +14,11 @@ env:
 jobs:
   build:
     # Run the build on both windows and linux.
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: ['ubuntu-latest', 'windows-latest']
-    runs-on: {{ matrix.os }}
+        os: [ubuntu-latest, windows-latest]
     steps:
     - uses: actions/checkout@v2
 
