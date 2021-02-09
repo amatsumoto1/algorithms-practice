@@ -10,5 +10,5 @@ add_subdirectory(src)
 
 #########################################
 # Unit tests
-add_subdirectory(test)
 enable_testing()
+add_subdirectory(test)
