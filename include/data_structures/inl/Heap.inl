@@ -16,7 +16,9 @@ Heap<T>::Heap(bool isMax)
 
 template<typename T>
 Heap<T>::~Heap() {
-    delete array_;
+    if (array_ != nullptr) {
+        delete array_;
+    }
 }
 
 template<typename T>
@@ -44,7 +46,7 @@ void Heap<T>::Push(T value) {
     if (size_ == capacity_) {
         capacity_ *= 2;
         T* resized = new T[capacity_];
-        std::memcpy(resized, array_, size_ * sizeof(T));
+        memcpy(resized, array_, size_ * sizeof(T));
         delete array_;
         array_ = resized;
     }
