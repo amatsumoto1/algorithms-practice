@@ -10,6 +10,7 @@ add_executable(
     tests.cpp
     data_structures/LinkedListTest.cpp
     data_structures/DoublyLinkedListTest.cpp
+    data_structures/HeapTest.cpp
 )
 
 target_include_directories(
