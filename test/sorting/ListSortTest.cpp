@@ -5,7 +5,7 @@
 namespace Sorting {
 
     TEST(ListSortingTests, SelectionSort) {
-        int array[10];
+        int array[10] = { 0 };
         for (int i = 0; i < 10; i++) {
             array[i] = 9-i;
         }
@@ -16,7 +16,7 @@ namespace Sorting {
     }
 
     TEST(ListSortingTests, InsertionSort) {
-        int array[10];
+        int array[10] = { 0 };
         for (int i = 0; i < 10; i++) {
             array[i] = 9-i;
         }
@@ -27,7 +27,7 @@ namespace Sorting {
     }
 
     TEST(ListSortingTests, BubbleSort) {
-        int array[10];
+        int array[10] = { 0 };
         for (int i = 0; i < 10; i++) {
             array[i] = 9-i;
         }
@@ -38,7 +38,7 @@ namespace Sorting {
     }
 
     TEST(ListSortingTests, MergeSort) {
-        int array[10];
+        int array[10] = { 0 };
         for (int i = 0; i < 10; i++) {
             array[i] = 9-i;
         }
@@ -49,7 +49,7 @@ namespace Sorting {
     }
 
     TEST(ListSortingTests, QuickSort) {
-        int array[10];
+        int array[10] = { 0 };
         for (int i = 0; i < 10; i++) {
             array[i] = 9-i;
         }
