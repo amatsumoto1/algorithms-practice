@@ -11,6 +11,7 @@ add_executable(
     data_structures/LinkedListTest.cpp
     data_structures/DoublyLinkedListTest.cpp
     data_structures/HeapTest.cpp
+    sorting/ListSortTest.cpp
 )
 
 target_include_directories(
@@ -23,6 +24,7 @@ target_include_directories(
 target_link_libraries(
     tests
     gtest_main
+    algorithm_practice
 )
 
 add_test(NAME test_all COMMAND tests)

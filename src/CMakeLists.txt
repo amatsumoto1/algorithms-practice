@@ -7,10 +7,12 @@ add_library(
     algorithm_practice
     STATIC
         Stub.cpp
+        sorting/ListSort.cpp
 )
 
 target_include_directories(
     algorithm_practice
     PUBLIC
         ${PROJECT_SOURCE_DIR}/include/data_structures
+        ${PROJECT_SOURCE_DIR}/include/sorting
 )
