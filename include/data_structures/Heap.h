@@ -27,7 +27,7 @@ private:
     int capacity_;
     int isMax_;
 
-    const int DEFAULT_INITIAL_CAPACITY = 10;
+    static const int DEFAULT_INITIAL_CAPACITY = 10;
 };
 
 }

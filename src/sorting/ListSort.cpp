@@ -81,8 +81,8 @@ namespace Sorting {
         MergeSort(array1, n/2);
         MergeSort(array2, n-n/2);
         Merge(array1, n/2, array2, n-n/2, array);
-        if (array1 != nullptr) delete array1;
-        if (array2 != nullptr) delete array2;
+        if (array1 != nullptr) delete[] array1;
+        if (array2 != nullptr) delete[] array2;
     }
 
     int Partition(int* array, int n) {
