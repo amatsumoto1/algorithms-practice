@@ -153,4 +153,23 @@ bool LinkedList<T>::RemoveAt(int index) {
     return true;
 }
 
+template <typename T>
+void LinkedList<T>::Reverse() {
+    if (size_ == 0) {
+        return;
+    }
+
+    Node* prev = head_;
+    Node* current = head_->next;
+    head_->next = nullptr;
+    while (current != nullptr) {
+        Node* temp = current->next;
+        current->next = prev;
+        prev = current;
+        current = temp;
+    }
+
+    head_ = prev;
+}
+
 }

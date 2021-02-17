@@ -123,4 +123,15 @@ TEST(DoublyLinkedListTests, RemoveAt) {
     EXPECT_EQ(list[0], 2);
 }
 
+TEST(DoublyLinkedListTests, Reverse) {
+    DoublyLinkedList<int> list;
+    for (int i = 0; i < 10; i++) {
+        list.Append(i);
+    }
+    list.Reverse();
+    for (int i = 0; i < 10; i++) {
+        EXPECT_EQ(list[i], 9 - i);
+    }
+}
+
 }

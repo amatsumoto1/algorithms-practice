@@ -33,6 +33,8 @@ public:
     // Removes an element with the given index. Returns whether the index
     // to remove at was valid.
     bool RemoveAt(int index);
+    // Reverses the elements of this singly linked list.
+    void Reverse();
 private:
     struct Node {
         T value;

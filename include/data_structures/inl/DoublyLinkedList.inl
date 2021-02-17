@@ -197,4 +197,26 @@ bool DoublyLinkedList<T>::RemoveAt(int index) {
     return true;
 }
 
+template <typename T>
+void DoublyLinkedList<T>::Reverse() {
+    if (size_ == 0) {
+        return;
+    }
+
+    Node* newTail = head_;
+    Node* newHead = head_;
+    Node* current = head_->next;
+    while (current != nullptr) {
+        Node* temp = current->next;
+        current->next = newHead;
+        newHead->prev = current;
+        newHead = current;
+        current = temp;
+    }
+    newHead->prev = nullptr;
+    newTail->next = nullptr;
+    head_ = newHead;
+    tail_ = newTail;
+}
+
 }
