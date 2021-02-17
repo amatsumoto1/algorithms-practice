@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 add_library(
     algorithm_practice
     STATIC
-        Stub.cpp
         sorting/ListSort.cpp
 )
 

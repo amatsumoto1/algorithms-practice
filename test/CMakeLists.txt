@@ -11,6 +11,7 @@ add_executable(
     data_structures/LinkedListTest.cpp
     data_structures/DoublyLinkedListTest.cpp
     data_structures/HeapTest.cpp
+    data_structures/BinaryTreeTest.cpp
     sorting/ListSortTest.cpp
 )
 
