@@ -58,4 +58,15 @@ namespace Sorting {
             EXPECT_EQ(array[i], i);
         }
     }
+
+    TEST(ListSortingTests, HeapSort) {
+        int array[10] = { 0 };
+        for (int i = 0; i < 10; i++) {
+            array[i] = 9-i;
+        }
+        HeapSort(array, 10);
+        for (int i = 0; i < 10; i++) {
+            EXPECT_EQ(array[i], i);
+        }
+    }
 }

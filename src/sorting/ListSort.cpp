@@ -1,6 +1,8 @@
 #include "ListSort.h"
 
+#include <algorithm>
 #include <cstring>
+#include <climits>
 
 namespace Sorting {
 
@@ -110,6 +112,43 @@ void QuickSort(int* array, int n) {
     //Recursively sort both partitions of list.
     QuickSort(array, pi);
     QuickSort(array + pi + 1, n - pi - 1);
+}
+
+void BubbleDown(int* array, int start, int end) {
+    int index = start;
+    int leftChild = 2*index + 1;
+    int rightChild = 2*index + 2;
+    while (leftChild <= end) {
+        int maxChild = leftChild;
+        if (rightChild <= end && array[leftChild] < array[rightChild]) {
+            maxChild = rightChild;
+        }
+
+        if (array[index] < array[maxChild]) {
+            Swap(array, index, maxChild);
+            index = maxChild;
+            leftChild = 2*index + 1;
+            rightChild = 2*index + 2;
+        }
+        else {
+            return;
+        }
+    }
+}
+
+void Heapify(int* array, int n) {
+    for (int index = n-1; index >= 0; index--) {
+        BubbleDown(array, index, n-1);
+    }
+}
+
+void HeapSort(int* array, int n) {
+    Heapify(array, n);
+
+    for (int i = n-1; i > 0; i--) {
+        Swap(array, 0, i);
+        BubbleDown(array, 0, i-1);
+    }
 }
 
 }

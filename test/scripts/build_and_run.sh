@@ -1,16 +1,16 @@
 #!/bin/bash
 
-build_dir=../../build
+BUILD_DIR=../../build
 
 
-if [ -d "$(build_dir)" ]
+if [ -d "$BUILD_DIR" ]
 then
-	rm -r "$(build_dir)/*"
+	rm -rf $BUILD_DIR/*
 else
-	cmake -E make_directory $build_dir
+	cmake -E make_directory $BUILD_DIR
 fi
 
-pushd $build_dir
+pushd $BUILD_DIR
 
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 cmake --build . --config Debug

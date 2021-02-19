@@ -8,7 +8,7 @@ void InsertionSort(int* array, int n);
 void BubbleSort(int* array, int n);
 void MergeSort(int* array, int n);
 void QuickSort(int* array, int n);
-//void HeapSort(int* array, int n);
+void HeapSort(int* array, int n);
 
 }
 
